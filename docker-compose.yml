@@ -1,0 +1,8 @@
+services:
+  slides:
+    build: .
+    container_name: slides_pln
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/usr/share/nginx/html
