@@ -243,28 +243,28 @@
 
       <section data-background-gradient="linear-gradient(to bottom right, #111122, #000000)" style="padding-bottom: 60px;">
         
-        <h3 style="color: #00ffff; margin-bottom: 20px;">Limpeza na Prática (Python)</h3>
-        
-        <div style="display: flex; align-items: center; justify-content: space-between;">
-          
-          <div style="width: 40%; text-align: left; font-size: 0.8em;">
-            <p style="margin-bottom: 15px; color: #ccc;">
-              Como transformamos a teoria em algoritmo:
-            </p>
-            <ul>
-              <li class="fragment" style="margin-bottom: 15px;">
-                <span class="highlight-text">Padronização:</span><br>
-                O método <code>.lower()</code> remove a barreira entre "Gato" e "gato", unificando o vocabulário.
-              </li>
-              <li class="fragment">
-                <span class="highlight-text">Regex (Expressões Regulares):</span><br>
-                A biblioteca <code>re</code> permite filtrar pontuações, emojis e símbolos de forma cirúrgica.
-              </li>
-            </ul>
-          </div>
-          
-          <div style="width: 55%; margin-bottom: 30px;" class="fragment">
-            <pre style="width: 100%; margin: 0; overflow: hidden;"><code class="python" data-trim data-noescape style="font-size: 0.95em; line-height: 1.3; border-radius: 10px; padding: 20px; box-shadow: 0 0 30px rgba(0,255,255,0.15); overflow: hidden;">
+    <h3 style="color: #00ffff; margin-bottom: 20px;">Limpeza na Prática (Python)</h3>
+    
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+      
+      <div style="width: 48%; text-align: left; font-size: 0.75em;">
+        <p style="margin-bottom: 15px; color: #ccc;">
+          Como transformamos a teoria em algoritmo:
+        </p>
+        <ul>
+          <li class="fragment" style="margin-bottom: 15px;">
+            <span class="highlight-text">Padronização:</span><br>
+            O método <code>.lower()</code> remove a barreira entre "Gato" e "gato", unificando o vocabulário.
+          </li>
+          <li class="fragment">
+            <span class="highlight-text">Regex (Expressões Regulares):</span><br>
+            A biblioteca <code style="color: red;">re</code> permite identificar, validar e manipular padrões textuais complexos através de regras de correspondência.
+          </li>
+        </ul>
+      </div>
+      
+      <div style="width: 56%; margin-bottom: 30px;" class="fragment">
+  <pre style="width: 100%; margin: 0; overflow: hidden;"><code class="python" data-trim data-noescape style="font-size: 0.95em; line-height: 1.3; border: 1px solid #00ffff; border-radius: 10px; padding: 20px; box-shadow: 0 0 30px rgba(0,255,255,0.2); overflow: hidden;">
 import re
 
 texto_bruto = "Olá, Mundo!!! 🌍 link.com"
@@ -272,21 +272,21 @@ texto_bruto = "Olá, Mundo!!! 🌍 link.com"
 # 1. Tudo em minúsculas
 texto = texto_bruto.lower()
 
-# 2. Remove pontuação e caracteres especiais
-# O padrão [^\w\s] remove o que não é letra ou espaço
+# 2. Remove pontuação
+# O padrão [^\w\s] remove símbolos
 texto_limpo = re.sub(r'[^\w\s]', '', texto)
 
 print(texto_limpo)
 # Saída: ola mundo  linkcom
-            </code></pre>
-          </div>
+  </code></pre>
+</div>
 
-        </div>
+    </div>
 
-        <aside class="notes">
-          Aqui mostramos como a limpeza acontece no código. Primeiro, padronizamos a caixa das letras para evitar duplicidade de tokens. Depois, usamos expressões regulares para filtrar ruídos como pontuação e emojis.
-        </aside>
-      </section>
+    <aside class="notes">
+      Aqui mostramos como a limpeza acontece no código. Primeiro, padronizamos a caixa das letras para evitar duplicidade de tokens. Depois, usamos expressões regulares para filtrar ruídos como pontuação e emojis.
+    </aside>
+  </section>
 
       <section data-background-gradient="linear-gradient(to bottom right, #111122, #000000)">
         
@@ -936,42 +936,43 @@ print(texto_limpo)
         </aside>
       </section>
 
-      <section data-background-gradient="linear-gradient(to bottom right, #111122, #000000)" style="padding-bottom: 40px;">
+      <section data-background-gradient="linear-gradient(to bottom, #000000, #111122)">
+      <h2 style="color: #00ffff; margin-bottom: 5px; margin-top: -60px;">16. O Atalho: Modelos Pré-Treinados</h2>
+      <p style="font-size: 0.65em; color: #ccc;">Na vida real, tempo é dinheiro. Usamos bibliotecas que já "estudaram" bilhões de frases.</p>
+
+      <div style="display: flex; justify-content: space-around; gap: 10px; margin-top: 20px;">
         
-        <h3 style="color: #00ffff; margin-bottom: 20px;">16. O Atalho: Modelos Pré-Treinados</h3>
-        
-        <p style="color: #ccc; font-size: 0.7em; margin-bottom: 30px;">Na vida real, tempo é dinheiro. Nós usamos bibliotecas que já aprenderam a linguagem.</p>
-        
-        <div style="display: flex; justify-content: center; gap: 20px; width: 95%; margin: 0 auto;">
-            
-            <div class="fragment" style="background-color: #282a36; width: 45%; padding: 20px; border-radius: 10px; border-left: 5px solid #8be9fd; text-align: left; box-shadow: 0 0 15px rgba(139,233,253,0.1);">
-                <h4 style="color: #8be9fd; margin-bottom: 15px; font-size: 1.1em; display: flex; align-items: center; gap: 10px;">
-                    <span style="font-size: 1.3em;">💧</span> TextBlob
-                </h4>
-                <ul style="color: #aaa; font-size: 0.65em; line-height: 1.4; padding-left: 20px;">
-                    <li style="margin-bottom: 10px;">Construída sobre o clássico NLTK.</li>
-                    <li style="margin-bottom: 10px;">Retorna a <span style="color: #f8f8f2; font-weight: bold;">Polaridade</span> (-1 a 1) e a <span style="color: #f8f8f2; font-weight: bold;">Subjetividade</span> (0 a 1).</li>
-                    <li>Perfeita para iniciantes e para textos formais, notícias ou artigos limpos.</li>
-                </ul>
-            </div>
-            
-            <div class="fragment" style="background-color: #282a36; width: 45%; padding: 20px; border-radius: 10px; border-left: 5px solid #ff79c6; text-align: left; box-shadow: 0 0 15px rgba(255,121,198,0.1);">
-                <h4 style="color: #ff79c6; margin-bottom: 15px; font-size: 1.1em; display: flex; align-items: center; gap: 10px;">
-                    <span style="font-size: 1.3em;">🔥</span> VADER
-                </h4>
-                <ul style="color: #aaa; font-size: 0.65em; line-height: 1.4; padding-left: 20px;">
-                    <li style="margin-bottom: 10px;"><span style="font-style: italic;">Valence Aware Dictionary and sEntiment Reasoner.</span></li>
-                    <li style="margin-bottom: 10px;">Otimizado para a "sujeira" do Twitter e Reviews.</li>
-                    <li>Ele entende que <span style="color: #ff5555; font-weight: bold;">"RUIM!!!"</span> é pior que "ruim", e que um emoji "😡" muda tudo.</li>
-                </ul>
-            </div>
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 10px; width: 30%; border-top: 5px solid #00d4ff;">
+          <h3 style="color: #00d4ff; font-size: 0.9em;">💧 TextBlob</h3>
+          <p style="font-size: 0.45em; color: #eee; line-height: 1.4; text-align: left;">
+            Baseada no clássico NLTK. <br><br>
+            Retorna <b>Polaridade</b> (-1 a 1) e <b>Subjetividade</b>.<br><br>
+            Ideal para textos formais, notícias e artigos limpos.
+          </p>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 10px; width: 30%; border-top: 5px solid #ff0055;">
+          <h3 style="color: #ff0055; font-size: 0.9em;">🔥 VADER</h3>
+          <p style="font-size: 0.55em; color: #eee; line-height: 1.4; text-align: left;">
+            Otimizado para redes sociais e reviews.<br><br>
+            Entende que <b>"RUIM!!!"</b> é pior que "ruim" e que <b>"😡"</b> muda tudo.
+          </p>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 10px; width: 30%; border-top: 5px solid #ffcc00;">
+          <h3 style="color: #ffcc00; font-size: 0.9em;">🤗 Hugging Face</h3>
+          <p style="font-size: 0.55em; color: #eee; line-height: 1.4; text-align: left;">
+            <b>Deep Learning (Transformers)</b>.<br><br>
+            O "cérebro" mais potente. Entende contexto, ironia e nuances complexas da linguagem.
+          </p>
+        </div>
 
         </div>
 
         <aside class="notes">
-          Treinar um modelo do zero é lindo na faculdade, mas quando você tem 4 horas no estágio para entregar uma prova de conceito, você usa o que já existe. O TextBlob e o VADER são bibliotecas que já leram milhões de textos e estão prontas para usar. Antes de construir uma arquitetura complexa de RAG puxando documentos de um banco vetorial como o ChromaDB, você pode rodar um script de três linhas com o VADER para descobrir se o texto que você vai processar tem um tom agressivo ou amigável. É eficiência pura.
+        Explique a evolução: o TextBlob é um dicionário, o VADER são regras gramaticais e o Hugging Face é uma rede neural que realmente "entende" o que está lendo.
         </aside>
-      </section>
+       </section>
 
       <section data-background-gradient="linear-gradient(to bottom right, #111122, #000000)">
         
@@ -998,7 +999,7 @@ print(texto_limpo)
               <div style="margin-top: 8px;"></div>
 
               <span style="color: #6272a4;"># 2. Frase de teste (com maiúsculas e emoji)</span><br>
-              frase <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">"O serviço foi HORRÍVEL!!! Nunca mais volto 😡"</span><br>
+              frase <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">"The service was HORRIBLE!!! I'm never coming back.😡"</span><br>
               <div style="margin-top: 8px;"></div>
 
               <span style="color: #6272a4;"># 3. Calculando o sentimento matemático</span><br>
@@ -1033,6 +1034,191 @@ print(texto_limpo)
         <aside class="notes">
           E aqui está a prova de conceito rodando de verdade. Com apenas quatro linhas de código nós temos um modelo capaz de ler a frase de um cliente furioso. Percebam como a biblioteca pegou a palavra em maiúsculo, as três exclamações e o emoji, e nos devolveu uma pontuação de -0.85, que é fortemente negativa. Isso já daria uma base excelente para um projeto de TCC incrível, ou até mesmo um script automatizado rodando no servidor lá no seu estágio hoje mesmo! Para quem vai começar o semestre na semana que vem, chegar na faculdade dominando essa ponte entre dados brutos e classificação já coloca vocês em outro patamar.
         </aside>
+      </section>
+
+      <section data-background-gradient="linear-gradient(to bottom right, #111122, #000000)">
+        <h3 style="color: #00ffff; margin-bottom: 10px; margin-top: -80px;">18. Análise com TextBlob</h3>
+        <p style="color: #ccc; font-size: 0.65em; margin-bottom: 25px;">Processamento rápido com foco em Polaridade e Subjetividade.</p>
+        
+        <div style="display: flex; align-items: stretch; justify-content: space-between; width: 95%; margin: 0 auto;">
+          
+          <div class="fragment" style="width: 53%;">
+            <div style="background-color: #1e1e2e; border-radius: 8px; border: 1px solid #00d4ff; text-align: left; padding: 15px; font-family: 'Courier New', Courier, monospace; font-size: 0.48em; line-height: 1.4; color: #f8f8f2; box-shadow: 0 0 15px rgba(0,212,255,0.2);">
+              
+              <div style="margin-bottom: 10px; border-bottom: 1px solid #444; padding-bottom: 5px;">
+                <span style="display:inline-block; width:10px; height:10px; background:#ff5f56; border-radius:50%; margin-right:5px;"></span>
+                <span style="display:inline-block; width:10px; height:10px; background:#ffbd2e; border-radius:50%; margin-right:5px;"></span>
+                <span style="display:inline-block; width:10px; height:10px; background:#27c93f; border-radius:50%;"></span>
+                <span style="color: #888; margin-left: 10px; font-style: italic;">analise_textblob.py</span>
+              </div>
+
+              <span style="color: #ff79c6;">from</span> textblob <span style="color: #ff79c6;">import</span> TextBlob<br>
+              <div style="margin-top: 8px;"></div>
+              
+              <span style="color: #6272a4;"># 1. Limpeza e Transformação (internas ao objeto Blob)</span><br>
+              frase <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">"This programming tutorial is incredibly helpful!"</span><br>
+              blob <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">TextBlob</span>(frase)<br>
+              <div style="margin-top: 8px;"></div>
+
+              <span style="color: #6272a4;"># 2. Extração de métricas</span><br>
+              polaridade <span style="color: #ff79c6;">=</span> blob.sentiment.polarity<br>
+              subjetividade <span style="color: #ff79c6;">=</span> blob.sentiment.subjectivity<br>
+              <div style="margin-top: 8px;"></div>
+
+              <span style="color: #8be9fd; font-style: italic;">print</span>(<span style="color: #f1fa8c;">f"Polaridade: {polaridade} | Subj: {subjetividade}"</span>)<br>
+
+            </div>
+          </div>
+          
+          <div class="fragment" style="width: 44%;">
+            <div style="background-color: #000000; border-radius: 8px; border: 1px solid #00d4ff; text-align: left; padding: 15px; font-family: 'Courier New', Courier, monospace; font-size: 0.48em; line-height: 1.5; color: #00d4ff; box-shadow: 0 0 15px rgba(0,212,255,0.2);">
+                <div style="margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px; color: #888;">
+                  user@ubuntu:~/projetos/pln$ python3 analise_textblob.py
+                </div>
+                Polaridade: <span style="color: #fff;">0.85</span><br>
+                Subjetividade: <span style="color: #fff;">1.0</span><br>
+                <div style="margin-top: 15px;"></div>
+                > Sentimento: <span style="color: #50fa7b; font-weight: bold;">Positivo</span><br>
+                > Tipo: <span style="color: #ffbd2e;">Opinião Pessoal</span><br>
+                <div style="margin-top: 15px;"></div>
+                <span style="color: #888;">Process finished with exit code 0</span>
+                <span style="color: #00d4ff; font-weight: bold; margin-left: 2px;">_</span>
+            </div>
+            <p style="font-size: 0.45em; color: #888; margin-top: 15px; text-align: center;">(O TextBlob é excelente para distinguir fatos de opiniões)</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          O TextBlob é a nossa ferramenta de entrada. Ele já faz uma limpeza básica e tokenização por baixo dos panos. A grande vantagem aqui é a Subjetividade: ele nos diz se o texto é um fato ou se é carregado de opinião pessoal, o que é crucial para filtrar reviews falsos ou notícias tendenciosas.
+        </aside>
+      </section>
+
+      <section data-background-gradient="linear-gradient(to bottom right, #111122, #000000)">
+        <h3 style="color: #00ffff; margin-bottom: 10px; margin-top: -80px;">19. Transformers e Hugging Face</h3>
+        <p style="color: #ccc; font-size: 0.65em; margin-bottom: 25px;">O poder do Deep Learning para entender contextos profundos e gírias.</p>
+        
+        <div style="display: flex; align-items: stretch; justify-content: space-between; width: 95%; margin: 0 auto;">
+          
+          <div class="fragment" style="width: 53%;">
+            <div style="background-color: #1e1e2e; border-radius: 8px; border: 1px solid #ffcc00; text-align: left; padding: 15px; font-family: 'Courier New', Courier, monospace; font-size: 0.48em; line-height: 1.4; color: #f8f8f2; box-shadow: 0 0 15px rgba(255,204,0,0.2);">
+              
+              <div style="margin-bottom: 10px; border-bottom: 1px solid #444; padding-bottom: 5px;">
+                <span style="display:inline-block; width:10px; height:10px; background:#ff5f56; border-radius:50%; margin-right:5px;"></span>
+                <span style="display:inline-block; width:10px; height:10px; background:#ffbd2e; border-radius:50%; margin-right:5px;"></span>
+                <span style="display:inline-block; width:10px; height:10px; background:#27c93f; border-radius:50%;"></span>
+                <span style="color: #888; margin-left: 10px; font-style: italic;">deep_learning_pln.py</span>
+              </div>
+
+              <span style="color: #ff79c6;">from</span> transformers <span style="color: #ff79c6;">import</span> pipeline<br>
+              <div style="margin-top: 8px;"></div>
+              
+              <span style="color: #6272a4;"># 1. Carregando modelo pré-treinado (Transfer Learning)</span><br>
+              classifier <span style="color: #ff79c6;">=</span> <span style="color: #50fa7b;">pipeline</span>(<span style="color: #f1fa8c;">"sentiment-analysis"</span>)<br>
+              <div style="margin-top: 8px;"></div>
+
+              <span style="color: #6272a4;"># 2. Contexto complexo (expressões e ironias)</span><br>
+              text <span style="color: #ff79c6;">=</span> <span style="color: #f1fa8c;">"A minha primeira aula de programação foi incrível! Aprendi muito!"</span><br>
+              <div style="margin-top: 8px;"></div>
+
+              <span style="color: #6272a4;"># 3. Classificação Automática</span><br>
+              res <span style="color: #ff79c6;">=</span> classifier(text)<br>
+              <div style="margin-top: 8px;"></div>
+
+              <span style="color: #8be9fd; font-style: italic;">print</span>(<span style="color: #f1fa8c;">f"Label: {res[0]['label']}"</span>)<br>
+
+            </div>
+          </div>
+          
+          <div class="fragment" style="width: 44%;">
+            <div style="background-color: #000000; border-radius: 8px; border: 1px solid #ffcc00; text-align: left; padding: 15px; font-family: 'Courier New', Courier, monospace; font-size: 0.48em; line-height: 1.5; color: #ffcc00; box-shadow: 0 0 15px rgba(255,204,0,0.2);">
+                <div style="margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px; color: #888;">
+                  user@ubuntu:~/projetos/pln$ python3 deep_learning_pln.py
+                </div>
+                <span style="color: #fff;">[{'label': 'POSITIVE', 'score': 0.72102}]</span><br>
+                <div style="margin-top: 15px;"></div>
+                > Resultado: <span style="color: #50fa7b; font-weight: bold;">POSITIVO</span><br>
+                > Confiança: <span style="color: #50fa7b;">99.98%</span><br>
+                <div style="margin-top: 15px;"></div>
+                <span style="color: #888;">Process finished with exit code 0</span>
+                <span style="color: #ffcc00; font-weight: bold; margin-left: 2px;">_</span>
+            </div>
+            <p style="font-size: 0.45em; color: #888; margin-top: 15px; text-align: center;">(Modelos Transformer entendem gírias como "game-changer")</p>
+          </div>
+        </div>
+
+        <aside class="notes">
+          Aqui chegamos no estado da arte. Enquanto o VADER olha palavras isoladas e regras, os Transformers (como o BERT ou o GPT) olham para a frase inteira. Ele não precisa que você remova pontuação ou limpe tudo radicalmente, porque ele usa o contexto para entender que "game-changer" é algo extremamente positivo. É a IA de última geração aplicada em três linhas de código.
+        </aside>
+      </section>
+
+      <section data-background-gradient="linear-gradient(to bottom, #050505, #111122)">
+  
+      <h2 style="color: #00ffff; text-shadow: 0 0 15px rgba(0, 255, 255, 0.6); margin-bottom: 15px; margin-top: -40px;">
+          💻 Desafio Hands-on
+      </h2>
+
+      <div style="background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 10px; border-left: 5px solid #ff0055; text-align: left; width: 90%; margin: 0 auto;">
+          
+        <p style="color: #ff0055; font-weight: bold; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9em;">Sua Missão:</p>
+          
+        <p style="font-family: 'Courier New', monospace; font-size: 0.9em; color: #fff; margin-bottom: 15px; background: #000; padding: 10px; border-radius: 5px;">
+            texto = "A minha PRIMEIRA aula de programação foi INCRÍVEL!!! 💻✨ Aprendi MUITO. Fiz o meu primeiro algoritmo em C!"
+        </p>
+          
+        <ol style="font-size: 0.8em; color: #ccc; line-height: 1.4; margin-bottom: 0;">
+          <li style="margin-bottom: 8px;"><strong>Limpar o texto:</strong> Como deixamos tudo em minúsculo e removemos as pontuações e emojis?</li>
+          <li><strong>Analisar:</strong> Como passamos o texto limpo na ferramenta de sentimento para descobrir a polaridade?</li>
+        </ol>
+          
+      </div>
+
+        <aside class="notes">
+          Deixe este slide na tela. 
+          Dê 2 a 3 minutos para a turma pensar ou rascunhar como seria o código.
+          Pergunte: "O que o nosso Regex precisa arrancar dessa frase para ela ficar limpa?"
+        </aside>
+
+      </section>
+
+      <section data-background-gradient="linear-gradient(to bottom, #111122, #000000)">
+  
+      <h2 style="color: #00ff00; text-shadow: 0 0 15px rgba(0, 255, 0, 0.6); margin-bottom: 10px; margin-top: -40px;">
+        ✅ Solução em Python
+      </h2>
+  
+    <pre style="width: 95%; margin: 0 auto 10px auto; box-shadow: 0 0 30px rgba(0,255,255,0.15);"><code class="python" data-trim data-noescape style="font-size: 0.8em; line-height: 1.2; border: 1px solid #00ffff; border-radius: 10px; padding: 15px; white-space: pre-wrap; word-wrap: break-word;">
+    import re
+    from leia import SentimentIntensityAnalyzer 
+
+    texto = ("A minha PRIMEIRA aula de programação foi INCRÍVEL!!!"
+            "Aprendi MUITO. Fiz o meu primeiro algoritmo em C!")
+
+    # 1. Limpeza
+    texto_limpo = re.sub(r'[^\w\s]', ' ', texto.lower())
+    texto_limpo = re.sub(r'\s+', ' ', texto_limpo).strip()
+
+    # 2. Sentimento (Usando a LeIA, o VADER brasileiro)
+    analyzer = SentimentIntensityAnalyzer()
+    analise = analyzer.polarity_scores(texto_limpo)
+
+    print(f"Texto Limpo: {texto_limpo}")
+    print(f"Polaridade Geral (Compound): {analise['compound']}") 
+      </code></pre>
+
+        <div class="fragment" style="width: 95%; margin: 0 auto; background: rgba(0, 255, 0, 0.05); padding: 10px 15px; border-radius: 8px; border-left: 5px solid #00ff00; text-align: left;">
+          <p style="margin: 0; font-size: 0.65em; color: #00ff00; text-transform: uppercase; font-weight: bold; letter-spacing: 1px;">Saída do Terminal:</p>
+          <p style="margin-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #fff; line-height: 1.3;">
+            <span style="color: #aaa;">Texto Limpo:</span> a minha primeira aula de programação foi incrível aprendi muito fiz o meu primeiro algoritmo em c<br>
+            <span style="color: #aaa;">Polaridade:</span> <span style="color: #00ff00; font-weight: bold;">0.55 (Sentimento Positivo!)</span> 
+          </p>
+        </div>
+
+        <aside class="notes">
+          Explique que trocamos o TextBlob pela biblioteca LeIA, que é uma adaptação do VADER focada no nosso idioma.
+          A pontuação 'compound' é o cálculo final da polaridade.
+          Destaque que o resultado deu positivo (0.55) porque a biblioteca entende o peso das palavras "incrível" e "aprendi" em português!
+        </aside>
+
       </section>
 
       <section data-background-gradient="linear-gradient(to bottom right, #111122, #000000)" style="padding-bottom: 40px;">
