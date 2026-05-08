@@ -1448,22 +1448,28 @@ print(texto_limpo)
         </h2>
 
         <pre style="width: 95%; margin: 0 auto 10px auto; box-shadow: 0 0 30px rgba(0,255,255,0.15);"><code class="python" data-trim data-noescape style="font-size: 0.8em; line-height: 1.2; border: 1px solid #00ffff; border-radius: 10px; padding: 15px; white-space: pre-wrap; word-wrap: break-word;">
+    !pip install transformers torch
     import re
-    from leia import SentimentIntensityAnalyzer 
+    from transformers import pipeline
 
     texto = ("A minha PRIMEIRA aula de programação foi INCRÍVEL!!!"
             "Aprendi MUITO. Fiz o meu primeiro algoritmo em C!")
 
-    # 1. Limpeza
+    # Limpeza (opcional, mas boa prática)
     texto_limpo = re.sub(r'[^\w\s]', ' ', texto.lower())
     texto_limpo = re.sub(r'\s+', ' ', texto_limpo).strip()
 
-    # 2. Sentimento (Usando a LeIA, o VADER brasileiro)
-    analyzer = SentimentIntensityAnalyzer()
-    analise = analyzer.polarity_scores(texto_limpo)
+    # Análise de sentimento
+    classifier = pipeline(
+        "sentiment-analysis",
+        model="nlptown/bert-base-multilingual-uncased-sentiment"
+    )
 
-    print(f"Texto Limpo: {texto_limpo}")
-    print(f"Polaridade Geral (Compound): {analise['compound']}") 
+    resultado = classifier(texto_limpo)
+
+    print(f"Texto limpo : {texto_limpo}")
+    print(f"Label       : {resultado[0]['label']}")
+    print(f"Score       : {resultado[0]['score']:.4f}") 
       </code></pre>
 
         <div class="fragment"
@@ -1473,10 +1479,9 @@ print(texto_limpo)
             Saída do Terminal:</p>
           <p
             style="margin-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #ccc; line-height: 1.3;">
-            <span style="color: #aaa;">Texto Limpo:</span> a minha primeira aula de programação foi incrível aprendi
-            muito fiz o meu primeiro algoritmo em c<br>
-            <span style="color: #aaa;">Polaridade:</span> <span style="color: #50fa7b; font-weight: bold;">0.55
-              (Sentimento Positivo!)</span>
+            <span style="color: #aaa;">Texto limpo :</span> a minha primeira aula de programação foi incrível aprendi muito fiz o meu primeiro algoritmo em c<br>
+            <span style="color: #aaa;">Label       :</span> <span style="color: #50fa7b; font-weight: bold;">5 stars</span><br>
+            <span style="color: #aaa;">Score       :</span> <span style="color: #50fa7b; font-weight: bold;">0.6098</span>
           </p>
         </div>
 
