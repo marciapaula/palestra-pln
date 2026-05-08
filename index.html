@@ -1238,10 +1238,8 @@ print(texto_limpo)
                 user@ubuntu:~/projetos/pln$ python3 analise_vader.py
               </div>
 
-              <span style="color: #fff;">{'neg': 0.638, 'neu': 0.362, 'pos': 0.0, 'compound': -0.8546}</span><br>
-              <div style="margin-top: 15px;"></div>
-              > Sentimento final: <span style="color: #ff5555; font-weight: bold;">-0.8546</span><br>
-              > (Fortemente Negativo)<br>
+              Texto Limpo: <span style="color: #fff;">my first programming class was amazing i learned a lot</span><br>
+              Polaridade Geral (Compound): <span style="color: #fff;">0.5859</span><br>
               <div style="margin-top: 15px;"></div>
               <span style="color: #888;">Process finished with exit code 0</span>
               <span style="color: #50fa7b; font-weight: bold; margin-left: 2px;">_</span>
@@ -1310,8 +1308,8 @@ print(texto_limpo)
               <div style="margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 5px; color: #888;">
                 user@ubuntu:~/projetos/pln$ python3 analise_textblob.py
               </div>
-              Polaridade: <span style="color: #fff;">0.85</span><br>
-              Subjetividade: <span style="color: #fff;">1.0</span><br>
+              Polaridade: <span style="color: #fff;">1.0</span><br>
+              Subjetividade: <span style="color: #fff;">0.9</span><br>
               <div style="margin-top: 15px;"></div>
               > Sentimento: <span style="color: #50fa7b; font-weight: bold;">Positivo</span><br>
               > Tipo: <span style="color: #ffbd2e;">Opinião Pessoal</span><br>
@@ -1386,7 +1384,7 @@ print(texto_limpo)
               <span style="color: #fff;">[{'label': 'POSITIVE', 'score': 0.72102}]</span><br>
               <div style="margin-top: 15px;"></div>
               > Resultado: <span style="color: #50fa7b; font-weight: bold;">POSITIVO</span><br>
-              > Confiança: <span style="color: #50fa7b;">99.98%</span><br>
+              > Confiança: <span style="color: #50fa7b;">0.72</span><br>
               <div style="margin-top: 15px;"></div>
               <span style="color: #888;">Process finished with exit code 0</span>
               <span style="color: #ffcc00; font-weight: bold; margin-left: 2px;">_</span>
@@ -1443,7 +1441,7 @@ print(texto_limpo)
 
       <section data-background-gradient="linear-gradient(to bottom, #111122, #000000)">
 
-        <h2 style="color: #00ffff; margin-bottom: 10px; margin-top: -40px;">
+        <h2 style="color: #00ffff; margin-bottom: 9px; margin-top: -30px;">
           Solução em Python
         </h2>
 
@@ -1451,45 +1449,39 @@ print(texto_limpo)
     !pip install transformers torch
     import re
     from transformers import pipeline
-
     texto = ("A minha PRIMEIRA aula de programação foi INCRÍVEL!!!"
             "Aprendi MUITO. Fiz o meu primeiro algoritmo em C!")
-
     # Limpeza (opcional, mas boa prática)
     texto_limpo = re.sub(r'[^\w\s]', ' ', texto.lower())
     texto_limpo = re.sub(r'\s+', ' ', texto_limpo).strip()
-
     # Análise de sentimento
     classifier = pipeline(
         "sentiment-analysis",
         model="nlptown/bert-base-multilingual-uncased-sentiment"
     )
-
     resultado = classifier(texto_limpo)
-
     print(f"Texto limpo : {texto_limpo}")
     print(f"Label       : {resultado[0]['label']}")
     print(f"Score       : {resultado[0]['score']:.4f}") 
       </code></pre>
 
         <div class="fragment"
-          style="width: 95%; margin: 0 auto; background: rgba(0, 200, 255, 0.05); padding: 10px 15px; border-radius: 8px; border-left: 5px solid #00ffff; text-align: left;">
+          style="width: 95%; margin: 0 auto; background: rgba(0, 200, 255, 0.05); padding: 9px 14px 4px 14px; border-radius: 6px; border-left: 5px solid #00ffff; text-align: left;">
           <p
             style="margin: 0; font-size: 0.65em; color: #00ffff; text-transform: uppercase; font-weight: bold; letter-spacing: 1px;">
             Saída do Terminal:</p>
           <p
-            style="margin-top: 5px; font-family: 'Courier New', monospace; font-size: 0.75em; color: #ccc; line-height: 1.3;">
-            <span style="color: #aaa;">Texto limpo :</span> a minha primeira aula de programação foi incrível aprendi muito fiz o meu primeiro algoritmo em c<br>
-            <span style="color: #aaa;">Label       :</span> <span style="color: #50fa7b; font-weight: bold;">5 stars</span><br>
-            <span style="color: #aaa;">Score       :</span> <span style="color: #50fa7b; font-weight: bold;">0.6098</span>
+            style="margin-top: 3px; margin-bottom: 0; font-family: 'Courier New', monospace; font-size: 0.75em; color: #ccc; line-height: 1.15;">
+            <span style="color: #aaa;">Texto limpo :</span> a minha primeira aula de programação foi incrível aprendi
+            muito fiz o meu primeiro algoritmo em c<br>
+            <span style="color: #aaa;">Label :</span> <span style="color: #50fa7b; font-weight: bold;">5
+              stars</span><br>
+            <span style="color: #aaa;">Score :</span> <span style="color: #50fa7b; font-weight: bold;">0.6098</span>
           </p>
         </div>
 
         <aside class="notes">
-          Explique que trocamos o TextBlob pela biblioteca LeIA, que é uma adaptação do VADER focada no nosso idioma.
-          A pontuação 'compound' é o cálculo final da polaridade.
-          Destaque que o resultado deu positivo (0.55) porque a biblioteca entende o peso das palavras "incrível" e
-          "aprendi" em português!
+          removido
         </aside>
 
       </section>
